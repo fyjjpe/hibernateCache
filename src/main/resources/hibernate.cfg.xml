@@ -1,0 +1,28 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.username">root</property>
+        <property name="connection.password">1234</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">
+            jdbc:mysql://127.0.0.1:3306/hibernate2?useUnicode=true&amp;characterEnconding=UTF-8
+        </property>
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- 输出底层的sql(可选配置内容) -->
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+        <property name="hbm2ddl.auto">update</property>
+        <property name="hibernate.current_session_context_class">thread</property>
+
+        <!--指定二级缓存的外部实现类-->
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+
+        <mapping class="com.entity.Students"/>
+        <mapping class="com.entity.Teachers"/>
+
+    </session-factory>
+</hibernate-configuration>
